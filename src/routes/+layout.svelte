@@ -11,9 +11,6 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p></p>
-	</footer>
 </div>
 
 <style lang="postcss">
