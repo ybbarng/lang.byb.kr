@@ -3,7 +3,7 @@
 
 <svelte:head>
 	<title>lang.byb.kr</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="Study human languages" />
 </svelte:head>
 
 <section>
