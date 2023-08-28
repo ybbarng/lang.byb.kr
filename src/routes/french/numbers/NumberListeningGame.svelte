@@ -96,30 +96,32 @@
 </svelte:head>
 
 <section>
-  <div class="inline-block relative w-64">
+  <div class="flex justify-center items-center flex-col">
     {#if state != State.INIT}
-      <label
-        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-        for="grid-first-name"
-      >
-        Votre réponse :
-      </label>
-      <input
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        id="answer"
-        placeholder="123"
-        bind:value={enteredNumber}
-        type="number"
-        disabled={state == State.ANSWER}
-        autofocus
-      />
-      {#if state == State.RESULT_FAILED}
-        <p class="text-red-500 text-xs italic">Vous avez tort.</p>
-      {:else if state == State.RESULT_SUCCESS}
-        <p class="text-green-500 text-xs italic">Vous avez raison.</p>
-      {/if}
+      <div class="">
+        <label
+          class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-first-name"
+        >
+          Votre réponse :
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="answer"
+          placeholder="123"
+          bind:value={enteredNumber}
+          type="number"
+          disabled={state == State.ANSWER}
+          autofocus
+        />
+        {#if state == State.RESULT_FAILED}
+          <p class="text-red-500 text-xs italic">Vous avez tort.</p>
+        {:else if state == State.RESULT_SUCCESS}
+          <p class="text-green-500 text-xs italic">Vous avez raison.</p>
+        {/if}
+      </div>
     {/if}
-    <button class="btn btn-blue" on:click={onMainButtonPressed}> Play </button>
+    <button class="btn btn-blue mt-3" on:click={onMainButtonPressed}> Play </button>
   </div>
 </section>
 
