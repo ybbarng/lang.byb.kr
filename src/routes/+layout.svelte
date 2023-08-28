@@ -1,20 +1,20 @@
 <script>
-	import Header from './Header.svelte';
-	import "../app.css";
-	import './styles.css';
+    import Header from './Header.svelte';
+    import "../app.css";
+    import './styles.css';
 </script>
 
 <div class="app">
-	<Header />
+    <Header />
 
-	<main>
-		<slot />
-	</main>
+    <main>
+        <slot />
+    </main>
 
 </div>
 
 <style lang="postcss">
 :global(html) {
-	background-color: theme(colors.gray.200);
+    background-color: theme(colors.gray.200);
 }
 </style>
