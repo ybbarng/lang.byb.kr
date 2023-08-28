@@ -18,6 +18,7 @@
   var state: State = State.INIT;
   var answer = 0;
   var enteredNumber: string = '';
+  var inputElement: HTMLInputElement | null = null;
 
   const onVoiceChanged = () => {
     if (state !== State.INIT) {
@@ -54,6 +55,10 @@
   const makeNewQuestion = async () => {
     await delay(1000);
     setQuestionState();
+    if (inputElement == null) {
+      return;
+    }
+    inputElement.focus();
   };
 
   const checkAnswer = () => {
@@ -115,11 +120,13 @@
         >
           Votre réponse :
         </label>
+        <!-- svelte-ignore a11y-autofocus -->
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="answer"
           placeholder="123"
           bind:value={enteredNumber}
+          bind:this={inputElement}
           type="number"
           disabled={state == State.ANSWER}
           autofocus
