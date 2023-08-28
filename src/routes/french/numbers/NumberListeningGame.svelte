@@ -113,9 +113,9 @@
         disabled={state == State.ANSWER}
       />
       {#if state == State.RESULT_FAILED}
-        <p class="text-red-500 text-xs italic">Wrong answer.</p>
+        <p class="text-red-500 text-xs italic">Vous avez tort.</p>
       {:else if state == State.RESULT_SUCCESS}
-        <p class="text-green-500 text-xs italic">You are correct.</p>
+        <p class="text-green-500 text-xs italic">Vous avez raison.</p>
       {/if}
     {/if}
     <button class="btn btn-blue" on:click={onMainButtonPressed}> Play </button>
