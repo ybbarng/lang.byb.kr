@@ -1,6 +1,10 @@
 <script lang="ts">
   export var selectedVoiceUri: String = '';
 
+  $: {
+    onVoiceChanged();
+  }
+
   enum State {
     INIT,
     QUESTION,
@@ -14,6 +18,12 @@
   var state: State = State.INIT;
   var answer = 0;
   var enteredNumber: string = '';
+
+  const onVoiceChanged = () => {
+    if (state !== State.INIT) {
+      playQuestion();
+    }
+  };
 
   const getRandomNumber = () => {
     return Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
