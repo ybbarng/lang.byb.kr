@@ -1,5 +1,6 @@
 {
-    "useTabs": true,
+    "insertFinalNewLine": true,
+    "useTabs": false,
     "singleQuote": true,
     "trailingComma": "none",
     "printWidth": 100,
