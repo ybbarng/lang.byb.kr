@@ -131,7 +131,15 @@
         {/if}
       </div>
     {/if}
-    <button class="btn btn-blue mt-3" on:click={onMainButtonPressed}> Play </button>
+    {#if selectedVoiceUri !== ''}
+      <button class="btn btn-blue mt-3" on:click={onMainButtonPressed}>
+        {#if state === State.INIT}
+          Jouer
+        {:else}
+          Soumettre
+        {/if}
+      </button>
+    {/if}
   </div>
 </section>
 
