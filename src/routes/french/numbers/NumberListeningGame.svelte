@@ -42,7 +42,7 @@
   };
 
   const makeNewQuestion = async () => {
-    await delay(5000);
+    await delay(1000);
     setQuestionState();
   };
 
