@@ -108,7 +108,7 @@
 <section>
   <div class="flex justify-center items-center flex-col">
     {#if state != State.INIT}
-      <div class="">
+      <div class="w-full">
         <label
           class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
           for="grid-first-name"

@@ -40,10 +40,10 @@
 
 <section>
   <div class="flex justify-center items-center">
-    <div class="w-2xl">
+    <div class="max-w-2xl w-full p-5">
       <h1 class="text-xl font-bold">Les Nombres en français</h1>
-      <p class="text-gray-700">🎧 Écoutez et devinez le numéro.</p>
-      <div class="flex justify-center items-center">
+      <p class="text-gray-700 mt-1.5">🎧 Écoutez et devinez le numéro.</p>
+      <div class="flex justify-center items-center mt-5">
         <div class="w-full">
           <label
             for="voice"
