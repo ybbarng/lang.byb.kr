@@ -111,6 +111,7 @@
         bind:value={enteredNumber}
         type="number"
         disabled={state == State.ANSWER}
+        autofocus
       />
       {#if state == State.RESULT_FAILED}
         <p class="text-red-500 text-xs italic">Vous avez tort.</p>
