@@ -19,9 +19,7 @@
     };
 
     onMount(() => {
-        if (browser) {
-            registerVoicesListener();
-        }
+        registerVoicesListener();
     });
 </script>
 
