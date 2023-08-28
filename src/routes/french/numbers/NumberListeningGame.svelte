@@ -7,13 +7,13 @@
     ANSWER,
     RESULT_SUCCESS,
     RESULT_FAILED
-}
+  }
 
   var minNumber = 0;
   var maxNumber = 100;
   var state: State = State.INIT;
   var answer = 0;
-  var enteredNumber = null;
+  var enteredNumber: string = '';
 
   const getRandomNumber = () => {
     return Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
@@ -23,14 +23,28 @@
     return speechSynthesis.getVoices().filter((voice) => voice.voiceURI == selectedVoiceUri)[0];
   };
 
-  const setQuestionState = () => {
-    state = State.QUESTION;
-    answer = getRandomNumber();
+  const playQuestion = () => {
     const voice = getVoice();
     const utter = new SpeechSynthesisUtterance(answer.toString());
     utter.voice = voice;
     speechSynthesis.speak(utter);
-  }
+  };
+
+  const setQuestionState = () => {
+    state = State.QUESTION;
+    enteredNumber = '';
+    answer = getRandomNumber();
+    playQuestion();
+  };
+
+  const delay = (ms: number) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  };
+
+  const makeNewQuestion = async () => {
+    await delay(5000);
+    setQuestionState();
+  };
 
   const checkAnswer = () => {
     try {
@@ -44,16 +58,28 @@
     }
   };
 
+  const setResultSuccess = () => {
+    state = State.RESULT_SUCCESS;
+    makeNewQuestion();
+  };
+
+  const setResultFailed = () => {
+    state = State.RESULT_FAILED;
+    playQuestion();
+  };
+
   const onSubmit = () => {
     state = State.ANSWER;
     if (checkAnswer()) {
+      setResultSuccess();
       return;
     }
-  }
+    setResultFailed();
+  };
 
   const onPlay = () => {
     setQuestionState();
-  }
+  };
 
   const onMainButtonPressed = () => {
     if (state == State.QUESTION) {
@@ -84,8 +110,13 @@
         placeholder="123"
         bind:value={enteredNumber}
         type="number"
-        disabled='{state == State.ANSWER}'
+        disabled={state == State.ANSWER}
       />
+      {#if state == State.RESULT_FAILED}
+        <p class="text-red-500 text-xs italic">Wrong answer.</p>
+      {:else if state == State.RESULT_SUCCESS}
+        <p class="text-green-500 text-xs italic">You are correct.</p>
+      {/if}
     {/if}
     <button class="btn btn-blue" on:click={onMainButtonPressed}> Play </button>
   </div>
