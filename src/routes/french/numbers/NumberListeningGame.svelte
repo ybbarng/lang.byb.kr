@@ -55,10 +55,6 @@
   const makeNewQuestion = async () => {
     await delay(1000);
     setQuestionState();
-    if (inputElement == null) {
-      return;
-    }
-    inputElement.focus();
   };
 
   const checkAnswer = () => {
@@ -73,14 +69,23 @@
     }
   };
 
+  const focusInput = () => {
+    if (inputElement == null) {
+      return;
+    }
+    inputElement.focus();
+  }
+
   const setResultSuccess = () => {
     state = State.RESULT_SUCCESS;
     makeNewQuestion();
+    focusInput();
   };
 
   const setResultFailed = () => {
     state = State.RESULT_FAILED;
     playQuestion();
+    focusInput();
   };
 
   const onSubmit = () => {
