@@ -82,11 +82,11 @@
   };
 
   const onMainButtonPressed = () => {
-    if (state == State.QUESTION) {
-      onSubmit();
-    } else if (state == State.INIT) {
+    if (state == State.INIT) {
       onPlay();
+      return;
     }
+    onSubmit();
   };
 </script>
 
