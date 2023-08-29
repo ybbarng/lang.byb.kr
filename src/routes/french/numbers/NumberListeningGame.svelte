@@ -74,7 +74,7 @@
       return;
     }
     inputElement.focus();
-  }
+  };
 
   const setResultSuccess = () => {
     state = State.RESULT_SUCCESS;
@@ -140,6 +140,8 @@
           <p class="text-red-500 text-xs italic">Vous avez tort.</p>
         {:else if state == State.RESULT_SUCCESS}
           <p class="text-green-500 text-xs italic">Vous avez raison.</p>
+        {:else}
+          <p class="text-xs italic">&nbsp;</p>
         {/if}
       </div>
     {/if}
