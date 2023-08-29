@@ -120,7 +120,10 @@
 </svelte:head>
 
 <section>
-  <div class="flex justify-center items-center flex-col">
+  <form
+    on:submit|preventDefault={onMainButtonPressed}
+    class="flex justify-center items-center flex-col"
+  >
     {#if state != State.INIT}
       <div class="w-full">
         <label
@@ -152,7 +155,6 @@
     {#if selectedVoiceUri !== ''}
       <button
         class="btn btn-blue mt-3 disabled:opacity-25"
-        on:click={onMainButtonPressed}
         disabled={[State.ANSWER, State.RESULT_SUCCESS, State.RESULT_FAILED].includes(state)}
       >
         {#if state === State.INIT}
@@ -162,7 +164,7 @@
         {/if}
       </button>
     {/if}
-  </div>
+  </form>
 </section>
 
 <style>
