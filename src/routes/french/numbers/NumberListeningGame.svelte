@@ -20,6 +20,8 @@
   var enteredNumber: string = '';
   var inputElement: HTMLInputElement | null = null;
 
+  const RESULT_DELAY = 1000; // ms
+
   const onVoiceChanged = () => {
     if (state !== State.INIT) {
       playQuestion();
@@ -44,7 +46,6 @@
   const setQuestionState = () => {
     state = State.QUESTION;
     enteredNumber = '';
-    answer = getRandomNumber();
     playQuestion();
   };
 
@@ -52,8 +53,8 @@
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
 
-  const makeNewQuestion = async () => {
-    await delay(1000);
+  const makeNewQuestion = () => {
+    answer = getRandomNumber();
     setQuestionState();
   };
 
@@ -76,15 +77,17 @@
     inputElement.focus();
   };
 
-  const setResultSuccess = () => {
+  const setResultSuccess = async () => {
     state = State.RESULT_SUCCESS;
+    await delay(RESULT_DELAY);
     makeNewQuestion();
     focusInput();
   };
 
-  const setResultFailed = () => {
+  const setResultFailed = async () => {
     state = State.RESULT_FAILED;
-    playQuestion();
+    await delay(RESULT_DELAY);
+    setQuestionState();
     focusInput();
   };
 
@@ -98,7 +101,7 @@
   };
 
   const onPlay = () => {
-    setQuestionState();
+    makeNewQuestion();
   };
 
   const onMainButtonPressed = () => {
