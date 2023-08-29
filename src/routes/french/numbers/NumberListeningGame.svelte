@@ -149,7 +149,11 @@
       </div>
     {/if}
     {#if selectedVoiceUri !== ''}
-      <button class="btn btn-blue mt-3" on:click={onMainButtonPressed}>
+      <button
+        class="btn btn-blue mt-3 disabled:opacity-25"
+        on:click={onMainButtonPressed}
+        disabled={[State.ANSWER, State.RESULT_SUCCESS, State.RESULT_FAILED].includes(state)}
+      >
         {#if state === State.INIT}
           Jouer
         {:else}
