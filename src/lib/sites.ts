@@ -6,6 +6,10 @@ export type Site = {
     id: string;
     /** 카드 제목(그 언어로) */
     title: string;
+    /** 카드 위에 크게 쓰는 그 언어 인사말·한마디 */
+    greeting: string;
+    /** 카드 띠 색(CSS 색) */
+    accent: string;
     /** 카드 아래 한국어 설명 */
     description: string;
     url: string;
@@ -19,6 +23,8 @@ export const SITES: Site[] = [
     {
         id: 'fr',
         title: 'Français',
+        greeting: 'Bonjour !',
+        accent: '#2b59c3',
         description: '프랑스어 공부',
         url: 'https://ftf.byb.kr',
         external: true
@@ -26,6 +32,8 @@ export const SITES: Site[] = [
     {
         id: 'ja',
         title: '日本語',
+        greeting: 'こんにちは',
+        accent: '#c8323c',
         description: '일본어 공부',
         url: 'https://study-ja.byb.kr',
         external: true,
@@ -34,6 +42,8 @@ export const SITES: Site[] = [
     {
         id: 'fr-numbers',
         title: 'Les Nombres',
+        greeting: 'un, deux, trois…',
+        accent: '#d9902f',
         description: '프랑스어 숫자 듣기 연습',
         url: '/french/numbers',
         external: false

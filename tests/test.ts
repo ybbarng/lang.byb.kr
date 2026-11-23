@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test('홈에 프랑스어·일본어·숫자 연습 카드가 보인다', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: '언어 공부' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '오늘은 무슨 말을 공부할까?' })).toBeVisible();
     await expect(page.getByTestId('site-fr')).toHaveAttribute('href', 'https://ftf.byb.kr');
     await expect(page.getByTestId('site-ja')).toContainText('日本語');
     await expect(page.getByTestId('site-fr-numbers')).toHaveAttribute('href', '/french/numbers');
