@@ -22,7 +22,8 @@ https://lang.byb.kr 은 byb.kr 서버(nginx 컨테이너, Traefik 뒤)에서 새
 
 ## 알아 둘 것
 
-- `/french`는 원래부터 404다. 숫자 연습은 `/french/numbers`에 있다.
+- 프랑스어 숫자 듣기는 2026-11-23 study-fr.byb.kr/numbers 로 옮겼다(비서 요청 `R-20261123-1202-e6`). 옛 Svelte 화면 코드는 지웠고,
+  옛 주소 `/french/numbers`는 `ops/nginx.conf`가 301로 넘긴다. `/french`는 원래부터 404다.
 - 이 맥에서 `node_modules`의 esbuild가 다른 CPU용으로 깔려 있어 빌드가 안 된 적이 있다. `npm ci`로 다시 설치하면 된다.
 - 이 맥에는 Docker가 떠 있지 않다. 이미지는 GitHub Actions에서만 빌드한다.
 - Playwright 1.37에는 시계 고정(`page.clock`) 기능이 없다. 날짜에 따라 바뀌는 판단은 단위 시험(`src/lib/languages.test.ts`)에서 확인한다.

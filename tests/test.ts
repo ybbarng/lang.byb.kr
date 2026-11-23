@@ -9,9 +9,10 @@ test('홈에 배우는 말·곧 시작할 말·언젠가 배울 말이 보인다
     await expect(page.getByTestId('lang-es')).toContainText('Español');
 });
 
-test('프랑스어 카드의 숫자 듣기 연습을 누르면 숫자 연습 화면이 열린다', async ({ page }) => {
+test('프랑스어 카드의 숫자 듣기 연습은 study-fr의 숫자 화면을 가리킨다', async ({ page }) => {
     await page.goto('/');
-    await page.getByTestId('tool-/french/numbers').click();
-    await expect(page).toHaveURL(/\/french\/numbers$/);
-    await expect(page).toHaveTitle('Les Nombres en français');
+    await expect(page.getByRole('link', { name: '숫자 듣기 연습' })).toHaveAttribute(
+        'href',
+        'https://study-fr.byb.kr/numbers'
+    );
 });

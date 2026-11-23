@@ -26,7 +26,7 @@ export type Language = {
     startsOn?: string;
     /** 공부 사이트 주소 */
     url?: string;
-    /** 이 저장소 안의 작은 연습 도구 */
+    /** 공부 사이트 안의 연습 도구로 바로 가는 링크 */
     tools?: Tool[];
 };
 
@@ -39,7 +39,7 @@ export const LANGUAGES: Language[] = [
         accent: '#2b59c3',
         stage: 'learning',
         url: 'https://study-fr.byb.kr',
-        tools: [{ label: '숫자 듣기 연습', url: '/french/numbers' }]
+        tools: [{ label: '숫자 듣기 연습', url: 'https://study-fr.byb.kr/numbers' }]
     },
     {
         code: 'ja',

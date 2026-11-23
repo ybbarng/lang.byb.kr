@@ -89,7 +89,7 @@
                                     <ul class="tools">
                                         {#each l.tools as tool}
                                             <li>
-                                                <a href={tool.url} data-testid="tool-{tool.url}">
+                                                <a href={tool.url}>
                                                     {tool.label}
                                                     <span aria-hidden="true">→</span>
                                                 </a>

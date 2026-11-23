@@ -1,7 +1,8 @@
 # lang.byb.kr
 
-나의 언어 공부 홈. 언어별 공부 사이트(study-fr.byb.kr, study-ja.byb.kr 등)로 들어가는 가벼운 링크 모음과,
-작은 연습 도구(프랑스어 숫자 듣기 `/french/numbers`)가 있다. 교재 자료는 각 공부 사이트에 두고 여기에는 두지 않는다.
+나의 언어 공부 홈. 언어별 공부 사이트(study-fr.byb.kr, study-ja.byb.kr 등)로 들어가는 가벼운 링크 모음이다.
+교재 자료와 연습 도구는 각 공부 사이트에 두고 여기에는 두지 않는다. 예전에 여기 있던 프랑스어 숫자 듣기(`/french/numbers`)는
+2026-11-23 study-fr.byb.kr/numbers 로 옮겼고, 옛 주소는 nginx가 301로 넘긴다(`ops/nginx.conf`).
 
 ## 언어 더하기·주소 바꾸기
 
