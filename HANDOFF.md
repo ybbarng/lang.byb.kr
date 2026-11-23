@@ -16,10 +16,9 @@ https://lang.byb.kr 은 byb.kr 서버(nginx 컨테이너, Traefik 뒤)에서 새
 
 ## 남은 일
 
-- Vercel 프로젝트(yongbae-bangs-projects/lang-byb-kr) 정리. 2026-11-23 사용자가 승인했다.
-  순서: 도메인 떼기 → 프로젝트 삭제 → GitHub의 Vercel 앱(설치 453362) 권한 줄이기.
-  세션이 하려 했지만 Chrome에 Vercel이 로그인돼 있지 않았고, GitHub도 앱 설정 전에 본인 확인을 요구해 멈췄다.
-  사용자가 직접 하거나, 로그인·본인 확인 뒤 세션에 이어 하라고 하면 한다(책상 항목에 주소가 있다).
+- 이 저장소에 남은 일은 없다.
+- Vercel의 lang-byb-kr 프로젝트는 2026-11-23 사용자가 지웠다. 남은 Vercel 프로젝트 셋(socket-io-chat-app, online-set-game, set)과
+  GitHub의 Vercel 앱(설치 453362) 정리는 사용자 요청으로 servers 세션에 넘겼다.
   그 전까지는 push마다 Vercel 빌드가 시도되고 실패하지만 해는 없다.
 
 ## 알아 둘 것
